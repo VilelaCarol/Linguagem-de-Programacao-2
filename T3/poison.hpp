@@ -5,6 +5,9 @@
 class Poison : public Item
 {
 
+private:
+int dano;
+
 public:
     Poison();
     ~Poison();

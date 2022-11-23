@@ -4,6 +4,8 @@
 
 class Heal : public Item
 {
+    public:
+    int cura;
 
 public:
     Heal();

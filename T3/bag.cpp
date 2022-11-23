@@ -1,7 +1,9 @@
 #include "bag.hpp"
-
+#include"item.hpp"
 #include <iostream>
-
+#include <vector>
+#include "poison.hpp"
+#include "heal.hpp"
 using namespace std;
 
 
@@ -10,4 +12,50 @@ Bag::Bag(){
 }
 Bag::~Bag(){
     cout<< "destruindo bag"<< endl;
+    for(int i=0; i<this->listaDeVeneno.size(); i++){
+        delete this->listaDeVeneno.at(i);
+    }
+     for(int i=0; i<this->listaDeCura.size(); i++){
+        delete this->listaDeCura.at(i);
+    }
+
+}
+
+void Bag::printItens(){
+    //vou andar pelo vetor de itens e contar quantos itens de cada tipo ele possui
+    //então vou printar a quantidade de cada um
+}
+
+vector<Item*> Bag::getItens(){
+    vector<Item*> listaDeItens;
+    for(int i=0; i<this->listaDeVeneno.size(); i++){
+        listaDeItens.push_back(this->listaDeVeneno.at(i));
+    }
+     for(int i=0; i<this->listaDeCura.size(); i++){
+        listaDeItens.push_back(this->listaDeCura.at(i));
+    }
+    return listaDeItens;
+}
+
+void Bag::colocarItem(Poison* novoItem){
+    this->listaDeVeneno.push_back(novoItem);
+}
+void Bag::colocarItem(Heal* novoItem){
+    this->listaDeCura.push_back(novoItem);
+}
+void Bag::tirarItem(string tipo, int quantidade){
+    if( tipo=="veneno" && this->listaDeVeneno.size()<=quantidade){
+        for (int i=0; i<quantidade; i++){
+            delete this->listaDeVeneno.at(this->listaDeVeneno.size()-1);
+        this->listaDeVeneno.pop_back();
+        }
+    }
+    if(tipo=="cura" && this-> listaDeCura.size()<=quantidade){
+        for(int i=0; i<quantidade; i++){
+            delete this->listaDeCura.at(this->listaDeCura.size()-1);
+        this->listaDeCura.pop_back();
+        }
+    }
+
+    
 }
