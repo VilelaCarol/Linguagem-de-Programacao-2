@@ -16,6 +16,7 @@ public:
 
     void printItens();//printa na tela a lista de todos os itens 
     vector<Item*> getItens();
+    void colocarItem(Item* novoItem);
     void colocarItem(Poison* novoItem);
     void colocarItem(Heal* novoItem);
     void tirarItem(string tipo, int quantidade);

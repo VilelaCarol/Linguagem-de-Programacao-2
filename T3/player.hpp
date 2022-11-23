@@ -22,10 +22,10 @@ class Player{
     Player(string nome);
     ~Player();
 
-   int getId();
+   //int getId();
    string getNome();
 
-   void adicionarItem(Item item_encontrado); //coloca o item dentro da mochila
+   void adicionarItem(Item* item_encontrado); //coloca o item dentro da mochila
    void receberDano(int dano);
    void usarPocaoDeCura();// pergunta quantas poções de vida ele quer usar e as usa (chamando o curarVida)
    void listarItensDaMochila(); // escreve na tela todos os itens que estão na mochila

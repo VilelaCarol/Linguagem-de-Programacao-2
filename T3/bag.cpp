@@ -24,6 +24,11 @@ Bag::~Bag(){
 void Bag::printItens(){
     //vou andar pelo vetor de itens e contar quantos itens de cada tipo ele possui
     //então vou printar a quantidade de cada um
+    int qtdPoison = this->listaDeVeneno.size();
+    int qtdHeal = this->listaDeCura.size();
+    cout<< "Quantidade de veneno: "<< qtdPoison<<endl;
+    cout<< "Quantidade de cura: "<< qtdHeal<<endl;
+
 }
 
 vector<Item*> Bag::getItens(){
@@ -37,6 +42,14 @@ vector<Item*> Bag::getItens(){
     return listaDeItens;
 }
 
+void Bag::colocarItem(Item* novoItem){
+    if(novoItem->tipo == "veneno"){
+        this->colocarItem((Poison*)novoItem);
+    }
+    else if(novoItem->tipo == "cura"){
+        this->colocarItem((Heal*)novoItem);
+    }
+}
 void Bag::colocarItem(Poison* novoItem){
     this->listaDeVeneno.push_back(novoItem);
 }

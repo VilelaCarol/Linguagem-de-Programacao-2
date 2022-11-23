@@ -21,3 +21,12 @@ Player::Player(string nome)
 Player::~Player(){
     cout<< "Deletando player "<< this->nome<<endl;
 }
+string Player::getNome(){
+    return this->nome;
+}
+void Player::adicionarItem(Item* item_encontrado){
+    this->mochila.colocarItem(item_encontrado);
+}
+void Player::listarItensDaMochila(){
+    this->mochila.printItens();
+}
