@@ -2,9 +2,12 @@
 #define POISON_HPP
 #include "item.hpp"
 
-class Poison: public Item {
+class Poison : public Item
+{
 
+public:
+    Poison();
+    ~Poison();
 };
-
 
 #endif

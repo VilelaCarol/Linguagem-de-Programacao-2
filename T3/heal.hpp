@@ -2,9 +2,12 @@
 #define HEAL_HPP
 #include "item.hpp"
 
-class Heal: public Item {
+class Heal : public Item
+{
 
+public:
+    Heal();
+    ~Heal();
 };
-
 
 #endif

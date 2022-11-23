@@ -1,12 +1,20 @@
 #include <iostream>
 #include <string>
 #include "player.hpp"
+#include <vector>
 
 using namespace std;
+
+vector<Player*> listaDeJogadores;
+
 
 void menuCreatePlayer()
 {
     cout << "CREATING NEW PLAYER" << endl;
+    cout << "Character Name: " ;
+    string nome;
+    cin >> nome;
+    listaDeJogadores.push_back(new Player(nome));
 }
 void menuSelectPlayer()
 {
@@ -36,6 +44,10 @@ int main()
         }
         else if (option == "3")
         {
+            for( int i=0; i<listaDeJogadores.size(); i++){
+                delete listaDeJogadores.at(i);
+
+            }
             break;
         }
         else

@@ -8,7 +8,7 @@ using namespace std;
 
 class Player{
   private:
-   int id;
+   //int id; 
    string nome;
    int hp;// tem 100 de vida maxima
    Bag mochila;
@@ -19,6 +19,7 @@ class Player{
 
   public:
     Player();
+    Player(string nome);
     ~Player();
 
    int getId();

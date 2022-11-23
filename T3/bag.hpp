@@ -1,8 +1,12 @@
 #ifndef BAG_HPP
 #define BAG_HPP
 
-class Bag {
+class Bag
+{
 
+public:
+    Bag();
+    ~Bag();
 };
 
 #endif
