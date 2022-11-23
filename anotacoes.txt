@@ -1,0 +1,20 @@
+Vantagens de poo:
+-C
+-O
+-M
+-E
+-R
+-N
+-A
+-D
+-A
+
+Caracteristicas do objeto
+-A
+-M
+-E
+
+Instanciar = criar um objeto
+Caneta c1= new Caneta() ; // chama o metodo construtor e instancia uma nova Caneta
+
+

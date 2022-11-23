@@ -1,0 +1,53 @@
+classe Suco:
+    atributos:
+            sabor
+            qtd açucar
+            cor da embalagem
+            fabricante
+            tipo
+    
+    Estado:
+            Aberto ou fechado
+            qtd restante
+            validade
+            temperatura
+    Metodos:
+            Suco();
+            estragar()
+            esvaziar(qtd)
+
+classe SucoPo herda Suco:
+    metodos:
+        SucoPo(){tipo = "pó"}
+        miaturarComAgua()
+
+classe SucoNatural herda Suco:
+    metodos:
+        SucoNatural(){tipo="Natural"}
+
+SucoNatural s1 = new SucoNatural()
+SucoPo s2 = new SucoPo()
+s1.esvaziar(200)
+
+
+---------------------------------------------------------
+classe TrabalhosProg2:
+    atributos:
+            arquivos_aluno
+            arquivo_enunciado
+            nota
+            data de entrega
+    
+    estados:
+            status de envio
+            status de nota
+            tempo restante
+
+    metodos:
+            enviar_arquivo()
+            tiltar_carol()
+            avaliar()
+
+Aluno carol = new Aluno()
+TrabalhosProg2 t3 = new TrabalhosProg2()
+carol.apresentar(t3)
