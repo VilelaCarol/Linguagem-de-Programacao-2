@@ -20,4 +20,13 @@ Player
   public void usarPocaoDeCura()// pergunta quantas poções de vida ele quer usar e as usa (chamando o curarVida)
   private void curarVida(int cura)
   public void listarItensDaMochila() // escreve na tela todos os itens que estão na mochila
+  ------------------
+
+  Operadores
+   Player<<Item -> adiciona item na mochila
+   Player>>Item -> remove item na mochila
+   Player +int -> cura
+   Player -int -> toma dano
+   Bag<<Item -> adiciona item no vector correto
+   Bag>>Item -> remove item no vector
 

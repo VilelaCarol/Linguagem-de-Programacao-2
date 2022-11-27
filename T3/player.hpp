@@ -16,19 +16,22 @@ class Player{
    
   private:
    void curarVida(int cura);
-
+   void receberDano(int dano);
+   void adicionarItem(Item* item_encontrado); //coloca o item dentro da mochila
   public:
     Player();
     Player(string nome);
     ~Player();
 
+  
    //int getId();
    string getNome();
-
-   void adicionarItem(Item* item_encontrado); //coloca o item dentro da mochila
-   void receberDano(int dano);
+   void operator+(int qtdCura);
+   void operator-(int qtdDano);
    void usarPocaoDeCura();// pergunta quantas poções de vida ele quer usar e as usa (chamando o curarVida)
    void listarItensDaMochila(); // escreve na tela todos os itens que estão na mochila
+   bool isAlive();
+   void operator<<(Item* item_encontrado);
 };
 
 #endif

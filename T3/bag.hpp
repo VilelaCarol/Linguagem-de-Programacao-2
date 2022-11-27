@@ -8,18 +8,22 @@ class Bag
 {
 
 private:
-    vector<Poison*> listaDeVeneno ;
-    vector<Heal*> listaDeCura;
+    vector<Poison *> listaDeVeneno;
+    vector<Heal *> listaDeCura;
+
+private:
+    void colocarItem(Item *novoItem);
+    void colocarItem(Poison *novoItem);
+    void colocarItem(Heal *novoItem);
+
 public:
     Bag();
     ~Bag();
 
-    void printItens();//printa na tela a lista de todos os itens 
-    vector<Item*> getItens();
-    void colocarItem(Item* novoItem);
-    void colocarItem(Poison* novoItem);
-    void colocarItem(Heal* novoItem);
+    void printItens(); // printa na tela a lista de todos os itens
+    vector<Item *> getItens();
     void tirarItem(string tipo, int quantidade);
+    void operator<<(Item *novoItem); // adiciona item na mochila
 };
 
 #endif

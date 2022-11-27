@@ -72,3 +72,6 @@ void Bag::tirarItem(string tipo, int quantidade){
 
     
 }
+void Bag::operator<<(Item* novoItem){
+    this->colocarItem(novoItem);
+}

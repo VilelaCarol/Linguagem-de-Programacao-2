@@ -18,7 +18,7 @@ void menuCreatePlayer()
     cin >> nome;
     listaDeJogadores.push_back(new Player(nome));
 }
-void playerSelectedOptions(Player *pSelected)
+void playerSelectedOptions(Player *pSelected)   
 {
     cout <<endl<<endl<< "PLAYER SELECTED: " << pSelected->getNome() << endl;
     cout << "1 - Walk" << endl;
@@ -44,14 +44,16 @@ void playerSelectedOptions(Player *pSelected)
             {
                 cout << "Found a heal" << endl;
                 Heal *h = new Heal();
-                pSelected->adicionarItem(h);
+                //pSelected->adicionarItem(h);
+                *pSelected<<h;
             }
             // se o numero for 1, encontra um poison
             else
             {
                 cout << "Found a poison" << endl;
                 Poison *p = new Poison();
-                pSelected->adicionarItem(p);
+                //pSelected->adicionarItem(p);
+                *pSelected<<p;
             }
         }
         break;
@@ -60,6 +62,23 @@ void playerSelectedOptions(Player *pSelected)
         break;
     case 3:
         cout << "Challenging another player..." << endl;
+        // primeiro voce tem que escolher quem voce quer desafiar 
+        //fazer um loop e printar o nome de todos os jogadores que não são o jogador selecionado
+        for (int i = 0; i < listaDeJogadores.size(); i++){
+            if (pSelected->getNome() ==listaDeJogadores.at(i)->getNome())
+            {
+                continue;
+            }
+            
+          cout << i << " - " << listaDeJogadores.at(i)->getNome() << endl;
+             
+        }
+        
+
+
+
+
+        //cada jogador vai escolher uma quantidade de venenos para jogar np outro (uma rodada)
         break;
     case 4:
         cout << "Exiting..." << endl;
