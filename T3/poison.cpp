@@ -8,3 +8,6 @@ Poison::Poison(){
 Poison::~Poison(){
 
 }
+int Poison::operator*(int qtd){
+    return this->dano*qtd;
+}

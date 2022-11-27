@@ -10,6 +10,7 @@ class Heal : public Item
 public:
     Heal();
     ~Heal();
+    int operator*(int qtd);
 };
 
 #endif

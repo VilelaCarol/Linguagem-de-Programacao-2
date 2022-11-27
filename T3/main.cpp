@@ -66,20 +66,20 @@ void playerSelectedOptions(Player *pSelected)
         string esc;
         cin >> esc;
         if(esc == "y" || esc == "Y"){
+            Heal h = Heal();
             int qtdHeal;
             while (1)
             {
                 cout << "how many poisons do you want?" << endl;
                 cin >> qtdHeal;
-                if (pSelected->removerItem(qtdHeal, "cura"))
+                if (pSelected->removerItem(qtdHeal, h.tipo))
                 {
                     break;
                 }else{
                     cout << "invalid quantity!"<<endl;
                 }
             }
-            Heal h = Heal();
-            *pSelected + (h.cura*qtdHeal);
+            *pSelected + (h*qtdHeal);
         }
     }
     else if (option == 3)
@@ -101,6 +101,7 @@ void playerSelectedOptions(Player *pSelected)
         Player *pDesafiado;
         cin >> escolha;
         pDesafiado = listaDeJogadores.at(escolha);
+        Poison p = Poison();
 
         // cada jogador vai escolher uma quantidade de venenos para jogar np outro (uma rodada)
         // fazer cada jogador escolher uma quantidade de veneno para jogar (então tem q mostrar a bag de cada um)
@@ -111,7 +112,7 @@ void playerSelectedOptions(Player *pSelected)
             pSelected->listarItensDaMochila();
             cout << "how many poisons do you want?" << endl;
             cin >> qtdVenenoPS;
-            if (pSelected->removerItem(qtdVenenoPS, "veneno"))
+            if (pSelected->removerItem(qtdVenenoPS, p.tipo))
             {
                 break;
             }
@@ -123,16 +124,15 @@ void playerSelectedOptions(Player *pSelected)
             pDesafiado->listarItensDaMochila();
             cout << "how many poisons do you want?" << endl;
             cin >> qtdVenenoPD;
-            if (pDesafiado->removerItem(qtdVenenoPD, "veneno"))
+            if (pDesafiado->removerItem(qtdVenenoPD, p.tipo))
             {
                 break;
             }
         }
 
         // calcular os danos de acordo com as quantidades escolhidas
-        Poison p = Poison();
-        *pDesafiado - (p.dano * qtdVenenoPS);
-        *pSelected - (p.dano * qtdVenenoPD);
+        *pDesafiado - (p * qtdVenenoPS);
+        *pSelected - (p * qtdVenenoPD);
 
         cout << pSelected->getNome()<<": "<<pSelected->getHP()<<endl;
         cout << pDesafiado->getNome()<<": "<<pDesafiado->getHP()<<endl;

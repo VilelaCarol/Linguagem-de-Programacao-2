@@ -57,7 +57,8 @@ void Bag::colocarItem(Heal* novoItem){
     this->listaDeCura.push_back(novoItem);
 }
 bool Bag::tirarItem(string tipo, int quantidade){
-    if( tipo=="veneno"){
+    Poison p = Poison();
+    if( tipo==p.tipo){
         if(this->listaDeVeneno.size()<quantidade){
             return false;
         }
@@ -66,7 +67,8 @@ bool Bag::tirarItem(string tipo, int quantidade){
         this->listaDeVeneno.pop_back();
         }
     }
-    if(tipo=="cura"){
+    Heal h = Heal();
+    if(tipo==h.tipo){
         if(this-> listaDeCura.size()<quantidade){
             return false;
         }

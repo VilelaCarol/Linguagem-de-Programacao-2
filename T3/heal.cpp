@@ -7,3 +7,7 @@ Heal::Heal(){
 Heal::~Heal(){
 
 }
+
+int Heal::operator*(int qtd){
+    return this->cura*qtd;
+}

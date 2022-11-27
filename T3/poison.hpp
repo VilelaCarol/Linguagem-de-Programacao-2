@@ -11,6 +11,7 @@ int dano;
 public:
     Poison();
     ~Poison();
+    int operator*(int qtd);
 };
 
 #endif
