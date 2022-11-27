@@ -24,7 +24,7 @@ void playerSelectedOptions(Player *pSelected)
          << endl
          << "PLAYER SELECTED: " << pSelected->getNome() << endl;
     cout << "1 - Walk" << endl;
-    cout << "2 - See bag" << endl;
+    cout << "2 - See bag and HP" << endl;
     cout << "3 - Challenge another player" << endl;
     cout << "4 - Exit" << endl;
     int option;
@@ -60,7 +60,27 @@ void playerSelectedOptions(Player *pSelected)
     }
     else if (option == 2)
     {
+        cout << pSelected->getNome()<<"'s HP: "<< pSelected->getHP()<<endl;
         pSelected->listarItensDaMochila();
+        cout << "Do you want to use your healing potions? (y/n)"<<endl;
+        string esc;
+        cin >> esc;
+        if(esc == "y" || esc == "Y"){
+            int qtdHeal;
+            while (1)
+            {
+                cout << "how many poisons do you want?" << endl;
+                cin >> qtdHeal;
+                if (pSelected->removerItem(qtdHeal, "cura"))
+                {
+                    break;
+                }else{
+                    cout << "invalid quantity!"<<endl;
+                }
+            }
+            Heal h = Heal();
+            *pSelected + (h.cura*qtdHeal);
+        }
     }
     else if (option == 3)
     {
