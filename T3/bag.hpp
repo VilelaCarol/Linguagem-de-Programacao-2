@@ -22,7 +22,7 @@ public:
 
     void printItens(); // printa na tela a lista de todos os itens
     vector<Item *> getItens();
-    void tirarItem(string tipo, int quantidade);
+    bool tirarItem(string tipo, int quantidade);
     void operator<<(Item *novoItem); // adiciona item na mochila
 };
 

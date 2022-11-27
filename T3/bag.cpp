@@ -8,10 +8,10 @@ using namespace std;
 
 
 Bag::Bag(){
-    cout<< "construindo bag"<< endl;
+    //cout<< "construindo bag"<< endl;
 }
 Bag::~Bag(){
-    cout<< "destruindo bag"<< endl;
+    //cout<< "destruindo bag"<< endl;
     for(int i=0; i<this->listaDeVeneno.size(); i++){
         delete this->listaDeVeneno.at(i);
     }
@@ -56,19 +56,26 @@ void Bag::colocarItem(Poison* novoItem){
 void Bag::colocarItem(Heal* novoItem){
     this->listaDeCura.push_back(novoItem);
 }
-void Bag::tirarItem(string tipo, int quantidade){
-    if( tipo=="veneno" && this->listaDeVeneno.size()<=quantidade){
+bool Bag::tirarItem(string tipo, int quantidade){
+    if( tipo=="veneno"){
+        if(this->listaDeVeneno.size()<quantidade){
+            return false;
+        }
         for (int i=0; i<quantidade; i++){
             delete this->listaDeVeneno.at(this->listaDeVeneno.size()-1);
         this->listaDeVeneno.pop_back();
         }
     }
-    if(tipo=="cura" && this-> listaDeCura.size()<=quantidade){
+    if(tipo=="cura"){
+        if(this-> listaDeCura.size()<quantidade){
+            return false;
+        }
         for(int i=0; i<quantidade; i++){
             delete this->listaDeCura.at(this->listaDeCura.size()-1);
         this->listaDeCura.pop_back();
         }
     }
+    return true;
 
     
 }

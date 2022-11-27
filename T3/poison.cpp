@@ -2,7 +2,7 @@
 
 Poison::Poison(){
     this->tipo = "veneno";
-    this->dano = 50;
+    this->dano = 20;
 }
 
 Poison::~Poison(){

@@ -32,6 +32,8 @@ class Player{
    void listarItensDaMochila(); // escreve na tela todos os itens que estão na mochila
    bool isAlive();
    void operator<<(Item* item_encontrado);
+   bool removerItem(int qtdItem, string tipo);
+   int getHP();
 };
 
 #endif

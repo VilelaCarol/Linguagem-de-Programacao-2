@@ -5,7 +5,7 @@
 class Poison : public Item
 {
 
-private:
+public:
 int dano;
 
 public:
