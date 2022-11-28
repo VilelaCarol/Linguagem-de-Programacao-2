@@ -74,6 +74,7 @@ void playerSelectedOptions(Player *pSelected)
                 cin >> qtdHeal;
                 if (pSelected->removerItem(qtdHeal, h.tipo))
                 {
+                    *pSelected + (h * qtdHeal);
                     break;
                 }else{
                     cout << "invalid quantity!"<<endl;
