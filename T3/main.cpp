@@ -70,7 +70,7 @@ void playerSelectedOptions(Player *pSelected)
             int qtdHeal;
             while (1)
             {
-                cout << "how many poisons do you want?" << endl;
+                cout << "how many potions do you want?" << endl;
                 cin >> qtdHeal;
                 if (pSelected->removerItem(qtdHeal, h.tipo))
                 {

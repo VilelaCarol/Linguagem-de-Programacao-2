@@ -1,0 +1,52 @@
+LIBS += -L"C:\Qt\6.4.1\mingw_64\lib" -lQt6Multimedia
+
+QT       += core gui
+QT += multimedia
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++17
+
+# You can make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+SOURCES += \
+    Redbird.cpp \
+    boss.cpp \
+    bullet.cpp \
+    bulletboss.cpp \
+    enemy.cpp \
+    game.cpp \
+    gameover.cpp \
+    gamewon.cpp \
+    health.cpp \
+    main.cpp \
+    menu.cpp \
+    player.cpp \
+    score.cpp
+
+HEADERS += \
+    Redbird.hpp \
+    boss.hpp \
+    bullet.hpp \
+    bulletboss.hpp \
+    enemy.hpp \
+    game.hpp \
+    gameover.h \
+    gamewon.hpp \
+    health.hpp \
+    menu.h \
+    player.hpp \
+    score.hpp
+
+FORMS += \
+    gameover.ui \
+    gamewon.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
