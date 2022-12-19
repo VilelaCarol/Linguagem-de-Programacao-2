@@ -10,6 +10,7 @@ extern Game*game;
 
 Enemy::Enemy()
 {
+    this->life = 1;
     //posiçãoaleatoria
     int random_number= 50+rand()%650;
     setPos(1800, random_number);

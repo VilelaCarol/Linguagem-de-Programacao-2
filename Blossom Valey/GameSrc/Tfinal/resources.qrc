@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/Alpiste.png</file>
+        <file>assets/corvo_01.png</file>
+        <file>assets/corvo_02.png</file>
+        <file>assets/corvo_11.png</file>
+        <file>assets/corvo_12.png</file>
+        <file>assets/corvo_21.png</file>
+        <file>assets/corvo_22.png</file>
+        <file>assets/foguinho.png</file>
+        <file>assets/Fundo_casa.png</file>
+        <file>assets/Fundo_floresta.png</file>
+        <file>assets/gameOver.png</file>
+        <file>assets/Pantalho.png</file>
+        <file>assets/Win.png</file>
+    </qresource>
+</RCC>
