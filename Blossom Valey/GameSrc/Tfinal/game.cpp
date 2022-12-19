@@ -3,9 +3,10 @@
 #include <QImage>
 #include <QBrush>
 #include <QKeyEvent>
-
+# include <vector>
+using namespace std;
 #include "game.h"
-
+vector<Enemy*> enemies;
 Game::Game(QWidget *parent)
 {
     this->scene = new QGraphicsScene();
@@ -34,7 +35,7 @@ Game::Game(QWidget *parent)
     this->scene->addItem(this->score);
 
     // cria o timer para spawnar os inimigos
-    this->setTimerNormalEnemySpawn(3500);
+    this->setTimerNormalEnemySpawn(5500);
 
 
     this->show();
@@ -43,12 +44,18 @@ Game::Game(QWidget *parent)
 }
 
 void Game::setTimerNormalEnemySpawn(int time){
-    QTimer * timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(spawnNomalEnemy()));
+
+    timer = new QTimer();
+    connect(timer, &QTimer::timeout, this, std::bind(&Game::spawnNormalEnemy, this));
     timer->start(time);
 }
-void Game::spawnNomalEnemy()
+void Game::spawnNormalEnemy()
 {
+    // printa no console
+    qDebug() << "spawnou inimigo";
+    Enemy * enemy = new Enemy();
+    this->scene->addItem(enemy);
+    enemies.push_back(enemy);
 }
 
 void Game::keyPressEvent(QKeyEvent *event)
@@ -73,17 +80,23 @@ void Game::createNewPlayer()
     this->scene->addItem(this->player);
 }
 
-
-void Game::closeEvent(QCloseEvent *event)
-{
+void Game::freeMemory(){
+    // para o timer
+    this->timer->stop();
+    // anda pelo vetor de inimigos e deleta cada um deles
+    for(int i = 0; i < enemies.size(); i++){
+        delete enemies[i];
+    }
     delete this->score;
     delete this->player;
     delete this->scene;
 }
+void Game::closeEvent(QCloseEvent *event)
+{
+    this->freeMemory();
+}
 
 Game::~Game()
 {
-    delete this->score;
-    delete this->player;
-    delete this->scene;
+    this->freeMemory();
 }

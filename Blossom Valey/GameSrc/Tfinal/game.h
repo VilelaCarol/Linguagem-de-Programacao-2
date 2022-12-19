@@ -3,14 +3,23 @@
 
 #include <QGraphicsView>
 #include <QWidget>
-#include<QGraphicsScene>
+#include <QGraphicsScene>
+#include <vector>
+#include <QObject>
+#include <QTimer>
+
 
 #include "player.h"
 #include "score.h"
+#include "enemy.h"
+
+using namespace std;
 
 class Game : public QGraphicsView
 {
+
 public:
+    QTimer *timer;
     Player* player;
     Score* score;
 
@@ -23,10 +32,12 @@ public:
 private:
     void createNewPlayer();
     void setTimerNormalEnemySpawn(int time);
+    void freeMemory();
 public slots:
-    void spawnNomalEnemy();
-    // botão de fechar da janela
-    void closeEvent(QCloseEvent *event);
+  //void timeout();
+  slots void spawnNormalEnemy();
+  // botão de fechar da janela
+  void closeEvent(QCloseEvent *event);
 };
 
 #endif // GAME_H
