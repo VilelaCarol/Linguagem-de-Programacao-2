@@ -6,11 +6,13 @@
 #include<QGraphicsScene>
 
 #include "player.h"
+#include "score.h"
 
 class Game : public QGraphicsView
 {
 public:
     Player* player;
+    Score* score;
 
 public:
     Game(QWidget * parent = 0);
@@ -23,6 +25,8 @@ private:
     void setTimerNormalEnemySpawn(int time);
 public slots:
     void spawnNomalEnemy();
+    // botão de fechar da janela
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // GAME_H

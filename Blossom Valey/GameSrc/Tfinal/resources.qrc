@@ -13,5 +13,7 @@
         <file>assets/gameOver.png</file>
         <file>assets/Pantalho.png</file>
         <file>assets/Win.png</file>
+        <file>sounds/Battlesong.mp3</file>
+        <file>sounds/battleThemeA.mp3</file>
     </qresource>
 </RCC>

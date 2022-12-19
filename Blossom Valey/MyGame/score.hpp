@@ -3,7 +3,7 @@
 #define SCORE_HPP
 
 #include<QGraphicsTextItem>
-#include <QMediaPlayer>//sudoapt-getinstallqtmultimedia5-dev
+#include <QMediaPlayer> //sudoapt-getinstallqtmultimedia5-dev
 
 class Score : public QGraphicsTextItem
 {
