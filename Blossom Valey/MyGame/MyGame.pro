@@ -1,10 +1,9 @@
-LIBS += -L"C:\Qt\6.4.1\mingw_64\lib" -lQt6Multimedia
+QT       += core gui\
+            multimedia
 
-QT       += core gui
-QT += multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++17
+CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -21,7 +20,6 @@ SOURCES += \
     gamewon.cpp \
     health.cpp \
     main.cpp \
-    menu.cpp \
     player.cpp \
     score.cpp
 
@@ -35,7 +33,6 @@ HEADERS += \
     gameover.h \
     gamewon.hpp \
     health.hpp \
-    menu.h \
     player.hpp \
     score.hpp
 
