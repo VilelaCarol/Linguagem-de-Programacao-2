@@ -31,6 +31,7 @@ Game::Game(QWidget *parent)
 
     // cria o score
     this->score = new Score();
+    this->scene->addItem(this->score);
 
     // cria o timer para spawnar os inimigos
     this->setTimerNormalEnemySpawn(3500);
