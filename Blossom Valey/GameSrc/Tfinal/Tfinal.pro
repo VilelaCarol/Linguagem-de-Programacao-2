@@ -14,12 +14,16 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     player.cpp \
+    playerbullet.cpp \
+    projectile.cpp \
     score.cpp
 
 HEADERS += \
     game.h \
     mainwindow.h \
     player.h \
+    playerbullet.h \
+    projectile.h \
     score.h
 
 FORMS += \
