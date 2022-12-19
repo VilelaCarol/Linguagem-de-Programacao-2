@@ -15,7 +15,7 @@ public:
     ~Projectile();
 private:
 public slots:
-    virtual void move(){};
+    void move();
 
 };
 

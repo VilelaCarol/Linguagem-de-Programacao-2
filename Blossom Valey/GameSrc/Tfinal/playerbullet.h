@@ -9,7 +9,7 @@ public:
     PlayerBullet( QGraphicsItem *parent = 0);
     ~PlayerBullet();
 public slots:
-    void move(); 
+    virtual void move(); 
 
 };
 

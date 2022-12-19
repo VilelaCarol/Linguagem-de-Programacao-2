@@ -28,9 +28,16 @@ void Player::moveDown()
 }
 void Player::shoot()
 {
-    qDebug() << "shoot";
+    PlayerBullet* bullet = new PlayerBullet();
+    bullet->setPos(this->x()+this->pixmap().width()*0.15,this->y()+this->pixmap().height()*0.15);
+    scene()->addItem(bullet);
+    this->bullets.push_back(bullet);
 }
 Player::~Player()
 {
     qDebug() << "Player deleted";
+    // anda no vetor de bullets e deleta todos os elementos
+    for(int i = 0; i < this->bullets.size(); i++){
+        delete this->bullets[i];
+    }
 }

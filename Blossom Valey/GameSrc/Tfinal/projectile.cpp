@@ -17,4 +17,13 @@ Projectile::~Projectile()
 }
 
 
-
+void Projectile::move()
+{
+    // printa a posição do playerbullet
+    qDebug() << "PlayerBullet position: " << pos().x() << " " << pos().y();
+    setPos(x()+this->speed,y());
+    if(pos().x() > 1200){
+        scene()->removeItem(this);
+        delete this;
+    }
+}

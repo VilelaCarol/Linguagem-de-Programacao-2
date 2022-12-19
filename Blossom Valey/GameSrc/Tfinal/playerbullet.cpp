@@ -13,7 +13,7 @@ PlayerBullet::PlayerBullet( QGraphicsItem *parent)
     this->speed = 10;
     // Seta o timer de movimento
     QTimer* timer = new QTimer();
-    connect(timer,SIGNAL(timeout()),this,SLOT((PlayerBullet*)move()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 
 }
@@ -23,12 +23,11 @@ PlayerBullet::~PlayerBullet()
 }
 void PlayerBullet::move()
 {
-    setPos(x(),y()-this->speed);
-    if(pos().y() < 0){
-        scene()->removeItem(this);
-        delete this;
-    }
+    // chama a função move da classe pai
+    Projectile::move();
 }
+
+
 
 
 

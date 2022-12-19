@@ -5,6 +5,10 @@
 #include<QObject>
 #include<QGraphicsItem>
 #include<QGraphicsPixmapItem>
+#include <vector>
+using namespace std;
+
+#include "playerbullet.h"
 
 class Player : public QObject,public QGraphicsPixmapItem
 {
@@ -15,6 +19,8 @@ public:
     void moveUp();
     void moveDown();
     void shoot();
+private:
+    vector <PlayerBullet*> bullets;
 };
 
 #endif // PLAYER_H
