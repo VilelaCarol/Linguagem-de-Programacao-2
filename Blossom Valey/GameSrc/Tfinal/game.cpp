@@ -6,6 +6,8 @@
 # include <vector>
 using namespace std;
 #include "game.h"
+#include "enemy.h"
+#include "greenboss.h"
 vector<Enemy*> enemies;
 Game::Game(QWidget *parent)
 {
@@ -36,18 +38,32 @@ Game::Game(QWidget *parent)
 
     // cria o timer para spawnar os inimigos
     this->setTimerNormalEnemySpawn(5500);
+    this->setTimerGreenBossEnemySpawn(11000);
 
 
     this->show();
 
 
 }
+void Game::setTimerGreenBossEnemySpawn(int time){
 
+    timer2 = new QTimer();
+    connect(timer2, &QTimer::timeout, this, std::bind(&Game::spawnGreenBossEnemy, this));
+    timer2->start(time);
+}
+void Game::spawnGreenBossEnemy()
+{
+    // printa no console
+    qDebug() << "spawnou inimigo";
+    GreenBoss * enemy = new GreenBoss();
+    this->scene->addItem(enemy);
+    enemies.push_back(enemy);
+}
 void Game::setTimerNormalEnemySpawn(int time){
 
-    timer = new QTimer();
-    connect(timer, &QTimer::timeout, this, std::bind(&Game::spawnNormalEnemy, this));
-    timer->start(time);
+    timer1 = new QTimer();
+    connect(timer1, &QTimer::timeout, this, std::bind(&Game::spawnNormalEnemy, this));
+    timer1->start(time);
 }
 void Game::spawnNormalEnemy()
 {
@@ -82,7 +98,8 @@ void Game::createNewPlayer()
 
 void Game::freeMemory(){
     // para o timer
-    this->timer->stop();
+    this->timer1->stop();
+    this->timer2->stop();
     // anda pelo vetor de inimigos e deleta cada um deles
     for(int i = 0; i < enemies.size(); i++){
         delete enemies[i];

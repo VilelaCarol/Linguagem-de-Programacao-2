@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     enemy.cpp \
     game.cpp \
+    greenboss.cpp \
     main.cpp \
     mainwindow.cpp \
     player.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 HEADERS += \
     enemy.h \
     game.h \
+    greenboss.h \
     mainwindow.h \
     player.h \
     playerbullet.h \

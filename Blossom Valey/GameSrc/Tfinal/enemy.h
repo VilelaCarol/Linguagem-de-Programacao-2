@@ -3,7 +3,8 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
-
+#include <string.h>
+using namespace std;
 class Enemy : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -18,6 +19,7 @@ public slots:
 protected:
     int health;
     int animationFrame;
+    string img;
 
 };
 

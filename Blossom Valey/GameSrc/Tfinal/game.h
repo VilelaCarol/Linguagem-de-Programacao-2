@@ -8,7 +8,6 @@
 #include <QObject>
 #include <QTimer>
 
-
 #include "player.h"
 #include "score.h"
 #include "enemy.h"
@@ -19,25 +18,29 @@ class Game : public QGraphicsView
 {
 
 public:
-    QTimer *timer;
-    Player* player;
-    Score* score;
+    QTimer *timer1;
+    QTimer *timer2;
+    QTimer *timer3;
+    Player *player;
+    Score *score;
 
 public:
-    Game(QWidget * parent = 0);
+    Game(QWidget *parent = 0);
     ~Game();
-    QGraphicsScene * scene;
+    QGraphicsScene *scene;
     void keyPressEvent(QKeyEvent *event);
 
 private:
     void createNewPlayer();
     void setTimerNormalEnemySpawn(int time);
+    void setTimerGreenBossEnemySpawn(int time);
     void freeMemory();
 public slots:
-  //void timeout();
-  slots void spawnNormalEnemy();
-  // botão de fechar da janela
-  void closeEvent(QCloseEvent *event);
+    // void timeout();
+    slots void spawnNormalEnemy();
+    slots void spawnGreenBossEnemy();
+    // botão de fechar da janela
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // GAME_H

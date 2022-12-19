@@ -13,11 +13,12 @@ extern vector <Enemy*> enemies;
 
 Enemy::Enemy(QGraphicsItem*parent): QGraphicsPixmapItem(parent)
 {
-    animationFrame = 1;
-    QString img = "0" + QString::number(animationFrame) + ".png";
+    animationFrame =  1;
+    this->img = "0";
+    QString img_url = QString::fromStdString(this->img + to_string(this->animationFrame) + ".png");
     // printa o caminho da imagem
-    qDebug() << img;
-    setPixmap(QPixmap(":/assets/corvo_"+img));
+    qDebug() << ":/assets/corvo_"+img_url;
+    setPixmap(QPixmap(":/assets/corvo_"+img_url));
     int random_y = rand() % 637;
     setPos(1000,random_y);
     setScale(0.15);
@@ -51,10 +52,10 @@ void Enemy::animate()
 {
     // frames: 01 e 02
     animationFrame = (animationFrame == 1) ? 2 : 1;
-    QString img = '0' + QString::number(animationFrame) + ".png";
+    QString img_url = QString::fromStdString(this->img + to_string(this->animationFrame) + ".png");
     
-    //qDebug() << ":/assets/corvo_" + img;
-    setPixmap(QPixmap(":/assets/corvo_" + img));
+    qDebug() << ":/assets/corvo_" + img_url;
+    setPixmap(QPixmap(":/assets/corvo_" + img_url));
 }
 
 Enemy::~Enemy()
